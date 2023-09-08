@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    ---
+</head>
+<body>
+<!--/*  Multiple fragments may be defined in one file */-->
+<div th:fragment="footer">
+    <footer class="content-footer footer bg-footer-theme">
+        <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+            <div>
+            </div>
+            <div class="mb-2 mb-md-0">
+                ©
+                <script>
+                    document.write(new Date().getFullYear())
+                </script>
+                , desarrollado para GTICS por <a href="https://themeselection.com" target="_blank"
+                                                 class="footer-link fw-bolder">Texhnolyze</a>
+            </div>
+
+        </div>
+        <!-- / Layout wrapper -->
+        <!-- Core JS -->
+        <script th:src="@{/javascript/jquery.js}"></script>
+        <script th:src="@{/javascript/popper.js}"></script>
+        <script th:src="@{/javascript/bootstrap.js}"></script>
+        <script th:src="@{/javascript/perfect-scrollbar.js}"></script>
+        <script th:src="@{/javascript/menu.js}"></script>
+        <script th:src="@{/javascript/main.js}"></script>
+        <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+        <script th:src="@{/javascript/jquery.dataTables.min.js}"></script>
+        <script th:src="@{/javascript/dataTables.bootstrap5.min.js}"></script>
+
+        <script>
+            new DataTable('#usuarios');
+        </script>
+
+
+        <script>
+            function openFileExplorer() {
+                // Activar el input de tipo archivo cuando se hace clic en el botón
+                document.getElementById('imageUpload1').click();
+            }
+            function openFileExplorer() {
+                // Activar el input de tipo archivo cuando se hace clic en el botón
+                document.getElementById('imageUpload2').click();
+            }
+        </script>
+        <script>
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $('#imagePreview1').css('background-image', 'url(' + e.target.result + ')');
+                        $('#imagePreview1').hide();
+                        $('#imagePreview1').fadeIn(650);
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $('#imagePreview2').css('background-image', 'url(' + e.target.result + ')');
+                        $('#imagePreview2').hide();
+                        $('#imagePreview2').fadeIn(650);
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+            $("#imageUpload1").change(function () {
+                readURL(this);
+            });
+            $("#imageUpload2").change(function () {
+                readURL(this);
+            });
+        </script>
+        <script th:src="@{/javascript/helpers.js}"></script>
+        <script th:src="@{/javascript/config.js}"></script>
+        <!-- Page JS -->
+    </footer>
+</div>
+</body>
+</html>
